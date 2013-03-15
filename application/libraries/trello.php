@@ -7,9 +7,9 @@ class Trello{
 	public function __construct(){
 		$this->CI = &get_instance();
 		$this->CI->load->helper('curl_helper');
-		$app_id = '5114689a10dacfd870550a47f0ea44e1';
-		$secret = 'e59b83667b77efc68f261efa5f3d5cff2be46c8cab6a7fd88946d459ac164fbd';
-		$token = '07a8a6ec1e77d59db2f790c4452879e489fec8c55f46748bbb3189de2587847a';
+		$app_id = '';
+		$secret = '';
+		$token = '';
 		$this->token = $token;
 		$this->config = array(
   			'appId'  => $app_id,
