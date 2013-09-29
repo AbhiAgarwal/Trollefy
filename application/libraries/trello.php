@@ -19,7 +19,7 @@ class Trello{
 	}
 	
 	public function get_board_info($org_name, $board_name){
-		$url = "https://api.trello.com/1/organizations/$org_name/boards?key=5114689a10dacfd870550a47f0ea44e1&token=$this->token";
+		$url = "https://api.trello.com/1/organizations/$org_name/boards?key=&token=$this->token";
 		$orgs = file_get_contents($url);
 		$decoded = json_decode($orgs);
 		$name = '';
@@ -35,8 +35,8 @@ class Trello{
 	}
 	
 	public function register_with_all_boards($org_name, $email){
-		//$url = "https://api.trello.com/1/boards/50680f9730ea7eac13053107/invitations?email=me@abhiagarwal.com&key=5114689a10dacfd870550a47f0ea44e1&token=1db18635d3d31f676001b75828eef888c1c283c9c41cfd798d172c50eb3f6ab0";
-		$boards_url = "https://api.trello.com/1/organizations/$org_name/boards?key=5114689a10dacfd870550a47f0ea44e1&token=$this->token";
+		//$url = "https://api.trello.com/1/boards/50680f9730ea7eac13053107/invitations?email=&key=&token=";
+		$boards_url = "https://api.trello.com/1/organizations/$org_name/boards?key=&token=$this->token";
 		$orgs = file_get_contents($boards_url);
 		$decoded = json_decode($orgs);
 		$name = '';
@@ -56,14 +56,14 @@ class Trello{
 		return true;
 	}
 	public function get_all_organizations(){
-		$url = "https://api.trello.com/1/members/alinpd/organizations?key=5114689a10dacfd870550a47f0ea44e1&token=$this->token";
+		$url = "https://api.trello.com/1/members/alinpd/organizations?key=&token=$this->token";
 		$orgs = file_get_contents($url);
 		print_r($orgs);
 	}
 	
 	public function get_all_boards($org_id){
 		//$organization_id;
-		$url = "https://api.trello.com/1/organizations/$org_id/boards?key=5114689a10dacfd870550a47f0ea44e1&token=$this->token";
+		$url = "https://api.trello.com/1/organizations/$org_id/boards?key=&token=$this->token";
 		$boards = file_get_contents($url);
 		print_r($boards);
 		
@@ -71,7 +71,7 @@ class Trello{
 	
 	public function get_token(){
 		$return_url = base_url() . "index.php/authen/logme";
-		$request = "https://trello.com/1/authorize?key=5114689a10dacfd870550a47f0ea44e1&name=gangnamstyle&expiration=never&response_type=token&scope=read,write";
+		$request = "https://trello.com/1/authorize?key=&name=&expiration=never&response_type=token&scope=read,write";
 		redirect($request);
 	}
 	
@@ -88,7 +88,7 @@ class Trello{
 	}
 	
 	public function get_public_member($username){
-		$request = "https://api.trello.com/1/members/$username?key=5114689a10dacfd870550a47f0ea44e1";
+		$request = "https://api.trello.com/1/members/$username?key=";
 		$info = file_get_contents($request);
 		return $info;
 	}
